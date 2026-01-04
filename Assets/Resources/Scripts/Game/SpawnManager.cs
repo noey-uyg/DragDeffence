@@ -9,6 +9,9 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private void Update()
     {
+        if (!GlobalManager.Instance.IsStart || GlobalManager.Instance.IsUI)
+            return;
+
         _spawnTime += Time.deltaTime;
         
         if(_spawnTime > _baseSpawnTime)

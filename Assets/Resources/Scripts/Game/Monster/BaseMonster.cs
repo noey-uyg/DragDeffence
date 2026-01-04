@@ -22,6 +22,9 @@ public class BaseMonster : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GlobalManager.Instance.IsStart || GlobalManager.Instance.IsUI)
+            return;
+
         Vector2 dirVec = _centerPosition - _rigidBody.position;
         Vector2 nextVec = dirVec.normalized * _realSpeed * Time.fixedDeltaTime;
         _rigidBody.MovePosition(_rigidBody.position + nextVec);

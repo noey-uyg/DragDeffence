@@ -11,6 +11,9 @@ public class Circle : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GlobalManager.Instance.IsStart || GlobalManager.Instance.IsUI)
+            return;
+
         _lastDamageTime += Time.deltaTime;
         if (_lastDamageTime >= _baseDamageDelay)
         {

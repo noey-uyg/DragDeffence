@@ -7,16 +7,21 @@ public class MouseInputManager : Singleton<MouseInputManager>
 
     private float _dragSmoothness = 50f;
     private Vector3 _targetPosition;
+    private Vector3 _lastMoustPosition;
+    private Transform _cameraTransform;
 
-    protected override void Awake()
+    protected override void OnAwake()
     {
-        base.Awake();
+        if (_mainCamera == null) _mainCamera = Camera.main;
+        _cameraTransform = _mainCamera.transform;
+
+        if (_draggingObject != null) _targetPosition = _draggingObject.position;
     }
 
     private void Update()
     {
         if (HandleTouchInput()) return;
-        HandleMouseInput();
+        HandleMouse();
         SmoothFollow();
     }
 
@@ -39,18 +44,19 @@ public class MouseInputManager : Singleton<MouseInputManager>
         return true;
     }
 
-    private void HandleMouseInput()
+    private void HandleMouse()
     {
-        Vector3 worldPos = ScreenToWorld(Input.mousePosition);
-
-        if (Input.GetMouseButton(0))
+        Vector3 currentMoustPos = Input.mousePosition;
+        if(currentMoustPos != _lastMoustPosition)
         {
-            TryDrag(worldPos);
+            _targetPosition = ScreenToWorld(currentMoustPos);
+            _lastMoustPosition = currentMoustPos;
         }
     }
 
     private Vector3 ScreenToWorld(Vector3 screenPos)
     {
+        screenPos.z = -_cameraTransform.position.z;
         Vector3 worldPos = _mainCamera.ScreenToWorldPoint(screenPos);
         worldPos.z = 0;
         return worldPos;
@@ -63,10 +69,18 @@ public class MouseInputManager : Singleton<MouseInputManager>
 
     private void SmoothFollow()
     {
-        if(_draggingObject != null)
+        if (_draggingObject == null) return;
+
+        if(Vector3.SqrMagnitude(_draggingObject.position - _targetPosition) < 0.0001f)
         {
-            _draggingObject.position = Vector3.Lerp(_draggingObject.position, _targetPosition, Time.deltaTime * _dragSmoothness);
+            _draggingObject.position = _targetPosition;
+            return;
         }
+
+        _draggingObject.position = Vector3.Lerp(
+            _draggingObject.position,
+            _targetPosition,
+            Time.deltaTime * _dragSmoothness);
     }
     #endregion
 }
