@@ -9,7 +9,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private void Update()
     {
-        if (!GlobalManager.Instance.IsStart || GlobalManager.Instance.IsUI)
+        if (GameManager.Instance.CurrentState != GameManager.GameState.Playing)
             return;
 
         _spawnTime += Time.deltaTime;

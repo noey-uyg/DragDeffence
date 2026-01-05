@@ -8,6 +8,8 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] protected int _monsterID;
     [SerializeField] protected Rigidbody2D _rigidBody;
     [SerializeField] protected SpriteRenderer _spriteRenderer;
+    [SerializeField] protected Transform _transform;
+
     protected float _baseHP = 100;
     protected float _baseAtk = 1;
     protected float _baseSpeed = 1;
@@ -22,20 +24,45 @@ public class BaseMonster : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GlobalManager.Instance.IsStart || GlobalManager.Instance.IsUI)
+        if (GameManager.Instance.CurrentState != GameManager.GameState.Playing)
             return;
 
-        float distance = Vector2.Distance(_centerPosition, _rigidBody.position);
+        MoveToTarget(_centerPosition, Time.deltaTime);
 
-        if (distance > 0.25f)
+        //float distance = Vector2.Distance(_centerPosition, _rigidBody.position);
+
+        //if (distance > 0.25f)
+        //{
+        //    Vector2 dirVec = _centerPosition - _rigidBody.position;
+        //    Vector2 nextVec = dirVec.normalized * _realSpeed * Time.fixedDeltaTime;
+        //    _rigidBody.MovePosition(_rigidBody.position + nextVec);
+        //}
+        //else
+        //{
+        //    _rigidBody.linearVelocity = Vector2.zero;
+        //}
+    }
+
+    public void MoveToTarget(Vector2 targetPos, float deltaTime)
+    {
+        Vector2 currentPos = _transform.position;
+        Vector2 dir = targetPos - currentPos;
+        float distance = dir.magnitude;
+
+        if(distance > 0.1f)
         {
-            Vector2 dirVec = _centerPosition - _rigidBody.position;
-            Vector2 nextVec = dirVec.normalized * _realSpeed * Time.fixedDeltaTime;
-            _rigidBody.MovePosition(_rigidBody.position + nextVec);
-        }
-        else
-        {
-            _rigidBody.linearVelocity = Vector2.zero;
+            Vector2 toCenterDir = dir / distance;
+
+            Vector2 tangetDir = new Vector2(toCenterDir.y, -toCenterDir.x);
+
+            float approachWeight = 0.5f;
+            float orbitWeight = 1.0f;
+
+            Vector2 moveDir = (toCenterDir * approachWeight) + (tangetDir * orbitWeight);
+            moveDir = moveDir.normalized;
+
+            Vector2 nextPos = currentPos + moveDir * _realSpeed * deltaTime;
+            _transform.position = nextPos;
         }
     }
 

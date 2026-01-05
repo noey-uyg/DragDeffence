@@ -11,7 +11,7 @@ public class Circle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GlobalManager.Instance.IsStart || GlobalManager.Instance.IsUI)
+        if (GameManager.Instance.CurrentState != GameManager.GameState.Playing)
             return;
 
         _lastDamageTime += Time.deltaTime;

@@ -861,6 +861,7 @@ Transform:
   - {fileID: 65100371}
   - {fileID: 1397726663}
   - {fileID: 930300878}
+  - {fileID: 1880965098}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &231114732
@@ -872,9 +873,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 231114730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 884dd5e65f09d6144acefcd95b6818e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6256290e444118549a1880ed225d1127, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &259429877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,7 +2969,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5536401, g: 1, b: 0.4198113, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3547,7 +3548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 231114731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1880965099
 MonoBehaviour:
@@ -4125,7 +4126,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1318413608}
   - {fileID: 619394802}
-  - {fileID: 1880965098}
   - {fileID: 184347582}
   - {fileID: 1472806845}
   - {fileID: 18999946}
