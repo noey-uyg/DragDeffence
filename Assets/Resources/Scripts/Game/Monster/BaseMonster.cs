@@ -25,9 +25,18 @@ public class BaseMonster : MonoBehaviour
         if (!GlobalManager.Instance.IsStart || GlobalManager.Instance.IsUI)
             return;
 
-        Vector2 dirVec = _centerPosition - _rigidBody.position;
-        Vector2 nextVec = dirVec.normalized * _realSpeed * Time.fixedDeltaTime;
-        _rigidBody.MovePosition(_rigidBody.position + nextVec);
+        float distance = Vector2.Distance(_centerPosition, _rigidBody.position);
+
+        if (distance > 0.25f)
+        {
+            Vector2 dirVec = _centerPosition - _rigidBody.position;
+            Vector2 nextVec = dirVec.normalized * _realSpeed * Time.fixedDeltaTime;
+            _rigidBody.MovePosition(_rigidBody.position + nextVec);
+        }
+        else
+        {
+            _rigidBody.linearVelocity = Vector2.zero;
+        }
     }
 
     public void Init()
