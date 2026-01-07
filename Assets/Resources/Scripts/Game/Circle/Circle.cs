@@ -4,49 +4,27 @@ using UnityEngine;
 
 public class Circle : MonoBehaviour
 {
+    [SerializeField] private Transform _transform;
+
     private int _baseAtk = 10;
     private float _baseDamageDelay = 0.1f;
-    private float _lastDamageTime = 0f;
-    private List<BaseMonster> _monsters = new List<BaseMonster>();
+    private float _radius = 0.5f;
 
-    private void FixedUpdate()
+    private float _timer = 0f;
+
+    public float Radius { get { return _radius; } }
+    public int AtkDamage { get { return _baseAtk; } }
+    public Transform GetTransform {  get { return _transform; } }
+
+    public bool IsReady()
     {
-        if (GameManager.Instance.CurrentState != GameManager.GameState.Playing)
-            return;
+        _timer += Time.deltaTime;
 
-        _lastDamageTime += Time.deltaTime;
-        if (_lastDamageTime >= _baseDamageDelay)
-        {
-            for(int i=_monsters.Count-1; i>=0; i--)
-            {
-                _monsters[i].TakeDamage(_baseAtk);
-            }
-            
-            _lastDamageTime = 0f;
-        }
+        return _timer >= _baseDamageDelay;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void ResetTimer()
     {
-        BaseMonster monster = collision.GetComponent<BaseMonster>();
-        if(monster!= null && !_monsters.Contains(monster))
-        {
-            _monsters.Add(monster);
-            monster.SetDeadAction(RemoveMonster);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        BaseMonster monster = collision.GetComponent<BaseMonster>();
-        if (monster != null)
-        {
-            _monsters.Remove(monster);
-        }
-    }
-
-    public void RemoveMonster(BaseMonster monster)
-    {
-        _monsters.Remove(monster);
+        _timer = 0f;
     }
 }

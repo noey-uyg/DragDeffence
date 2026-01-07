@@ -21,27 +21,7 @@ public class BaseMonster : MonoBehaviour
     private Action<BaseMonster> _deadAction;
 
     public int MonsterID { get { return _monsterID; } }
-
-    private void FixedUpdate()
-    {
-        if (GameManager.Instance.CurrentState != GameManager.GameState.Playing)
-            return;
-
-        MoveToTarget(_centerPosition, Time.deltaTime);
-
-        //float distance = Vector2.Distance(_centerPosition, _rigidBody.position);
-
-        //if (distance > 0.25f)
-        //{
-        //    Vector2 dirVec = _centerPosition - _rigidBody.position;
-        //    Vector2 nextVec = dirVec.normalized * _realSpeed * Time.fixedDeltaTime;
-        //    _rigidBody.MovePosition(_rigidBody.position + nextVec);
-        //}
-        //else
-        //{
-        //    _rigidBody.linearVelocity = Vector2.zero;
-        //}
-    }
+    public Transform GetTransform { get { return _transform; } }
 
     public void MoveToTarget(Vector2 targetPos, float deltaTime)
     {
@@ -68,6 +48,7 @@ public class BaseMonster : MonoBehaviour
 
     public void Init()
     {
+        MonsterManager.Instance.Register(this);
         _deadAction = null;
         _realHP = _baseHP;
         _realAtk = _baseAtk;
@@ -87,6 +68,7 @@ public class BaseMonster : MonoBehaviour
     {
         _deadAction?.Invoke(this);
         MonsterPool.Instance.ReleaseNormalMonster(this);
+        MonsterManager.Instance.Unregister(this);
     }
 
     public void SetDeadAction(Action<BaseMonster> action)
