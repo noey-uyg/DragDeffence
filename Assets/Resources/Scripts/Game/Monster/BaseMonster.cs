@@ -9,6 +9,8 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] protected Rigidbody2D _rigidBody;
     [SerializeField] protected SpriteRenderer _spriteRenderer;
     [SerializeField] protected Transform _transform;
+    
+    [SerializeField] protected int _rewardGold;
 
     protected float _baseHP = 100;
     protected float _baseAtk = 1;

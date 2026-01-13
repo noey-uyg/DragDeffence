@@ -10,7 +10,7 @@ public class UpgradeData
     public int level;
     public int MaxLevel;
     public int[] cost;
-    public int[] Value;
+    public float[] Value;
     public int connectID;
 }
 
@@ -44,6 +44,8 @@ public class UpgradeNode : MonoBehaviour
         if (_upgradeData.level >= _upgradeData.MaxLevel) return;
 
         _upgradeData.level++;
+        float bonusValue = _upgradeData.Value[_upgradeData.level];
+        UpgradeManager.Instance.ApplyUpgrade(_upgradeData.ID, bonusValue);
         UpgradeManager.Instance.NotifyNodeCleared();
     }
 }

@@ -40,9 +40,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
         }
     }
 
-    public void AddNode(UpgradeNode node)
+    public void ApplyUpgrade(int id, float value)
     {
-        if (_allNodes.Contains(node)) return;
-        _allNodes.Add(node);
+        PlayerStat.UpdateContiribution(id, value);
     }
 }

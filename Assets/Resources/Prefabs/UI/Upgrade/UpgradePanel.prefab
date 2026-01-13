@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3737461740922635813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -917,7 +917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
-      value: 1001
+      value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1027,7 +1027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
-      value: 1001
+      value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1137,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
-      value: 1001
+      value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1240,6 +1240,14 @@ PrefabInstance:
     - target: {fileID: 4762234306997891477, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Name
       value: UpgradeNode
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.ID
+      value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1349,7 +1357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
-      value: 1001
+      value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1459,7 +1467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
-      value: 1001
+      value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1569,7 +1577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
-      value: 1001
+      value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1679,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
-      value: 1001
+      value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1789,7 +1797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
-      value: 1001
+      value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
