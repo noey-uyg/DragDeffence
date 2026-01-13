@@ -916,8 +916,24 @@ PrefabInstance:
       value: 1004
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
       value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1023,11 +1039,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.ID
-      value: 1009
+      value: 3012
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 301
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
       value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: '_upgradeData.Value.Array.data[1]'
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1136,8 +1172,24 @@ PrefabInstance:
       value: 1003
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
       value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1246,7 +1298,39 @@ PrefabInstance:
       value: 3011
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 301
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.MaxLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: '_upgradeData.Value.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: '_upgradeData.Value.Array.data[2]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: '_upgradeData.Value.Array.data[3]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: '_upgradeData.Value.Array.data[4]'
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: '_upgradeData.Value.Array.data[5]'
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
@@ -1356,8 +1440,24 @@ PrefabInstance:
       value: 1007
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
       value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1466,8 +1566,24 @@ PrefabInstance:
       value: 1006
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
       value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1576,8 +1692,24 @@ PrefabInstance:
       value: 1005
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
       value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1686,8 +1818,24 @@ PrefabInstance:
       value: 1002
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
       value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x
@@ -1796,8 +1944,24 @@ PrefabInstance:
       value: 1008
       objectReference: {fileID: 0}
     - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Type
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.MaxLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: _upgradeData.connectID
       value: 3011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.cost.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+      propertyPath: _upgradeData.Value.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8677603672962122253, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
       propertyPath: m_Pivot.x

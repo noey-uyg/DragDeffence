@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class PlayerStat
@@ -40,23 +41,32 @@ public static class PlayerStat
     private static Dictionary<int, float> UpgradedAtkDelay = new Dictionary<int, float>();
     private static Dictionary<int, float> UpgradedRadius = new Dictionary<int, float>();
 
-    public static void UpdateContiribution(int id, float value)
+    public static void UpdateContiribution(UpgradeType type, int uniqueID, float value)
     {
-        int SID = id / 10;
-
-        switch (SID)
+        switch (type)
         {
-            case 301:
-                {
-                    UpgradedAtk[id] = value;
-                    Debug.Log("업그레이드!");
-                    break;
-                }
-            default:
-                {
-                    Debug.Log("!!!!!");
-                    break;
-                }
+            case UpgradeType.GamePlayTime: UpgradedPlayTime[uniqueID] = value; break;
+            case UpgradeType.GameGoldGainPercent: UpgradedGoldGainPercent[uniqueID] = value; break;
+            case UpgradeType.CenterHP: UpgradedHP[uniqueID] = value; break;
+            case UpgradeType.CenterDefense: UpgradedDefense[uniqueID] = value; break;
+            case UpgradeType.CircleAtk: UpgradedAtk[uniqueID] = value; break;
+            case UpgradeType.CircleAtkDelay: UpgradedAtkDelay[uniqueID] = value; break;
+            case UpgradeType.CircleRadius: UpgradedRadius[uniqueID] = value; break;
         }
+
+        RefreshStats();
+    }
+
+    private static void RefreshStats()
+    {
+        CurPlayTime = BasePlayTime + UpgradedPlayTime.Values.Sum();
+        CurGoldGainPercent = BaseGoldGainPercent + UpgradedGoldGainPercent.Values.Sum();
+
+        CurMaxHP = BaseHP + UpgradedHP.Values.Sum();
+        CurDamageReduction = BaseDamageReduction + UpgradedDefense.Values.Sum();
+
+        CurAtk = BaseAtk + UpgradedAtk.Values.Sum();
+        CurAtkDelay = BaseAtkDelay + UpgradedAtkDelay.Values.Sum();
+        CurRadius = BaseRadius + UpgradedRadius.Values.Sum();
     }
 }

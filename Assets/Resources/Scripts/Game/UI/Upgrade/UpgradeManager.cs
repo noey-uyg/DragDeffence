@@ -40,8 +40,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
         }
     }
 
-    public void ApplyUpgrade(int id, float value)
+    public void ApplyUpgrade(UpgradeType type, int uniqueID, float value)
     {
-        PlayerStat.UpdateContiribution(id, value);
+        PlayerStat.UpdateContiribution(type, uniqueID, value);
     }
 }

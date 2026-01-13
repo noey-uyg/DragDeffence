@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : DontDestroySingleton<GameManager>
 {
-    public enum GameState { None, Playing, Paused, GameOver }
-
     private GameState _state;
 
     [SerializeField] private GameObject _center;

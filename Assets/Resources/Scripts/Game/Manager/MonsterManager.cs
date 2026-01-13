@@ -14,7 +14,7 @@ public class MonsterManager : Singleton<MonsterManager>
 
     private void Update()
     {
-        if (GameManager.Instance.CurrentState != GameManager.GameState.Playing || _monsters.Count == 0)
+        if (GameManager.Instance.CurrentState != GameState.Playing || _monsters.Count == 0)
             return;
 
         float dt = Time.deltaTime;

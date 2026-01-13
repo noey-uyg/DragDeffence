@@ -4,6 +4,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class UpgradeData
 {
+    public UpgradeType Type;
     public int ID;
     public string Name;
     public string Description;
@@ -45,7 +46,7 @@ public class UpgradeNode : MonoBehaviour
 
         _upgradeData.level++;
         float bonusValue = _upgradeData.Value[_upgradeData.level];
-        UpgradeManager.Instance.ApplyUpgrade(_upgradeData.ID, bonusValue);
+        UpgradeManager.Instance.ApplyUpgrade(_upgradeData.Type, _upgradeData.ID, bonusValue);
         UpgradeManager.Instance.NotifyNodeCleared();
     }
 }
