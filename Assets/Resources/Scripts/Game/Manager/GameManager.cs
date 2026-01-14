@@ -11,6 +11,7 @@ public class GameManager : DontDestroySingleton<GameManager>
     [SerializeField] private GameObject _titlePanel;
 
     public GameState CurrentState { get { return _state; } }
+    public Center Center { get { return _center; } }
 
     public void SetGameState(GameState state)
     {
@@ -44,5 +45,10 @@ public class GameManager : DontDestroySingleton<GameManager>
                 break;
 
         }
+    }
+
+    public void OnMonsterAttackCenter(float damage)
+    {
+        _center.TakeDamage(damage);
     }
 }

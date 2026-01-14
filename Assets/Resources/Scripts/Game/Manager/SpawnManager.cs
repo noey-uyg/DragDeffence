@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpawnManager : Singleton<SpawnManager>
 {
     [SerializeField] private Transform[] _spawnPoints;
+    [SerializeField] private Transform _monsterTransform;
 
     private float _baseSpawnTime = 1f;
     private float _spawnTime = 0f;
@@ -25,6 +26,7 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         BaseMonster monster = MonsterPool.Instance.GetNormalMonster();
         monster.Init();
-        monster.transform.position = _spawnPoints[Random.Range(0, _spawnPoints.Length)].position;
+        monster.GetTransform.position = _spawnPoints[Random.Range(0, _spawnPoints.Length)].position;
+        monster.GetTransform.SetParent(_monsterTransform);
     }
 }
