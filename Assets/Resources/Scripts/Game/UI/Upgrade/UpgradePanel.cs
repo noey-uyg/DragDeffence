@@ -7,8 +7,15 @@ public class UpgradePanel : MonoBehaviour
         UpgradeManager.Instance.InitializeAllNodes(this.gameObject);
     }
 
-    public void OnClickExit()
+    public void OnClickStart()
     {
         gameObject.SetActive(false);
+        GameManager.Instance.StartGame();
+    }
+
+    public void OnClickMain()
+    {
+        gameObject.SetActive(false);
+        GameManager.Instance.SetGameState(GameState.Lobby);
     }
 }

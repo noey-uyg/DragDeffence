@@ -32,7 +32,7 @@ public class Center : MonoBehaviour
             _hpSlider.value = _currentHP;
         }
 
-        if(_currentHP < 0f)
+        if(_currentHP <= 0f)
         {
             GameManager.Instance.SetGameState(GameState.GameOver);
         }

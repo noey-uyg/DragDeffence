@@ -5,7 +5,6 @@ public class SpawnManager : Singleton<SpawnManager>
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Transform _monsterTransform;
 
-    private float _baseSpawnTime = 1f;
     private float _spawnTime = 0f;
 
     private void Update()
@@ -15,7 +14,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
         _spawnTime += Time.deltaTime;
         
-        if(_spawnTime > _baseSpawnTime)
+        if(_spawnTime > PlayerStat.CurSpawnTime)
         {
             _spawnTime = 0f;
             Spawn();

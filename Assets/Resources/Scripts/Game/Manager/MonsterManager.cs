@@ -40,4 +40,17 @@ public class MonsterManager : Singleton<MonsterManager>
 
         if(_circle.IsReady()) _circle.ResetTimer();
     }
+
+    public void ClearAllMonsters()
+    {
+        for(int i = _monsters.Count - 1; i >= 0; i--)
+        {
+            if (_monsters[i] != null)
+            {
+                _monsters[i].Die(false);
+            }
+        }
+
+        _monsters.Clear();
+    }
 }

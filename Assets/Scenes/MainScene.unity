@@ -647,7 +647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8f5d79152d15345a20b515981da54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitlePanel
-  _mainUIPanel: {fileID: 322087089}
   _upgradePopup: {fileID: 1573040679}
 --- !u!1 &184347578
 GameObject:
@@ -1002,7 +1001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _center: {fileID: 1472806846}
   _circle: {fileID: 18999949}
-  _titlePanel: {fileID: 152640975}
+  _titlePanel: {fileID: 152640980}
+  _mainHUD: {fileID: 883070276}
 --- !u!1 &255350295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &322087090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2462,7 +2462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &883070275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2919,7 +2919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _popupRoot: {fileID: 930300878}
-  _popupPrefabs: []
+  _popupPrefabs:
+  - {fileID: 5509385694283381104, guid: f6eb22a2c512abf40a39f95824cb40f5, type: 3}
 --- !u!114 &930300880
 MonoBehaviour:
   m_ObjectHideFlags: 0

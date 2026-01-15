@@ -7,6 +7,7 @@ public static class PlayerStat
     // [Game]
     private const float BasePlayTime = 10f;
     private const float BaseGoldGainPercent = 1f;
+    private const float BaseSpawnTime = 1.5f;
     // [Center]
     private const float BaseHP = 20f;
     private const float BaseDamageReduction = 0f;
@@ -19,6 +20,7 @@ public static class PlayerStat
     // [Game]
     public static float CurPlayTime;
     public static float CurGoldGainPercent;
+    public static float CurSpawnTime;
     private static int _curGold;
     public static int CurGold {get => _curGold; set { _curGold = value; OnGoldChanged?.Invoke(_curGold); } }
     public static System.Action<int> OnGoldChanged;
@@ -34,6 +36,7 @@ public static class PlayerStat
     // [Game]
     private static Dictionary<int, float> UpgradedPlayTime = new Dictionary<int, float>();
     private static Dictionary<int, float> UpgradedGoldGainPercent = new Dictionary<int, float>();
+    private static Dictionary<int, float> UpgradedSpawnTime = new Dictionary<int, float>();
     // [Center]
     private static Dictionary<int, float> UpgradedHP = new Dictionary<int, float>();
     private static Dictionary<int, float> UpgradedDefense = new Dictionary<int, float>();
@@ -48,6 +51,7 @@ public static class PlayerStat
         {
             case UpgradeType.GamePlayTime: UpgradedPlayTime[uniqueID] = value; break;
             case UpgradeType.GameGoldGainPercent: UpgradedGoldGainPercent[uniqueID] = value; break;
+            case UpgradeType.GameSpawnTime: UpgradedSpawnTime[uniqueID] = value; break;
             case UpgradeType.CenterHP: UpgradedHP[uniqueID] = value; break;
             case UpgradeType.CenterDefense: UpgradedDefense[uniqueID] = value; break;
             case UpgradeType.CircleAtk: UpgradedAtk[uniqueID] = value; break;
@@ -61,6 +65,7 @@ public static class PlayerStat
     {
         CurPlayTime = BasePlayTime + UpgradedPlayTime.Values.Sum();
         CurGoldGainPercent = BaseGoldGainPercent + UpgradedGoldGainPercent.Values.Sum();
+        CurSpawnTime = BaseSpawnTime + UpgradedSpawnTime.Values.Sum();
 
         CurMaxHP = BaseHP + UpgradedHP.Values.Sum();
         CurDamageReduction = BaseDamageReduction + UpgradedDefense.Values.Sum();

@@ -1,6 +1,4 @@
 using UnityEngine;
-using static UnityEngine.CullingGroup;
-using UnityEngine.SceneManagement;
 
 public class GameManager : DontDestroySingleton<GameManager>
 {
@@ -8,7 +6,11 @@ public class GameManager : DontDestroySingleton<GameManager>
 
     [SerializeField] private Center _center;
     [SerializeField] private Circle _circle;
-    [SerializeField] private GameObject _titlePanel;
+    [SerializeField] private TitlePanel _titlePanel;
+    [SerializeField] private MainHUD _mainHUD;
+
+    private float _playStartTime;
+    private int _goldAtStart;
 
     public GameState CurrentState { get { return _state; } }
     public Center Center { get { return _center; } }
@@ -30,25 +32,55 @@ public class GameManager : DontDestroySingleton<GameManager>
     {
         switch (_state)
         {
-            case GameState.Playing:
-                PlayerStat.RefreshStats();
-                _center.gameObject.SetActive(true);
-                _center.Init();
-                _circle.gameObject.SetActive(true);
-                _circle.Init();
-                _titlePanel.SetActive(false);
-                break;
-            default:
-                _center.gameObject.SetActive(false);
-                _circle.gameObject.SetActive(false);
-                _titlePanel.SetActive(true);
-                break;
-
+            case GameState.Playing: OnPlaying(); break;
+            case GameState.GameOver: OnGameOver(); break;
+            case GameState.Lobby: OnLobby(); break;
         }
     }
 
     public void OnMonsterAttackCenter(float damage)
     {
         _center.TakeDamage(damage);
+    }
+
+    public void OnUpgradePanel()
+    {
+        _titlePanel.OnUpgradeButtonClick();
+    }
+
+    private void OnPlaying()
+    {
+        MonsterManager.Instance.ClearAllMonsters();
+        PlayerStat.RefreshStats();
+        _center.gameObject.SetActive(true);
+        _center.Init();
+        _circle.gameObject.SetActive(true);
+        _circle.Init();
+        _titlePanel.gameObject.SetActive(false);
+        _mainHUD.gameObject.SetActive(true);
+        _playStartTime = Time.time;
+        _goldAtStart = PlayerStat.CurGold;
+    }
+
+    private void OnGameOver()
+    {
+        MonsterManager.Instance.ClearAllMonsters();
+        _mainHUD.gameObject.SetActive(false);
+        float totalSurvivalTime = Time.time - _playStartTime;
+        int earnedGold = PlayerStat.CurGold - _goldAtStart;
+
+        PopupManager.Instance.ShowPopup<ResultPopup>(popup =>
+        {
+            popup.Init(earnedGold, totalSurvivalTime);
+        });
+    }
+
+    private void OnLobby()
+    {
+        MonsterManager.Instance.ClearAllMonsters();
+        _center.gameObject.SetActive(false);
+        _circle.gameObject.SetActive(false);
+        _mainHUD.gameObject.SetActive(false);
+        _titlePanel.gameObject.SetActive(true);
     }
 }
