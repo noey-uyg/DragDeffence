@@ -9,16 +9,11 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] protected Rigidbody2D _rigidBody;
     [SerializeField] protected SpriteRenderer _spriteRenderer;
     [SerializeField] protected Transform _transform;
-    
-    [SerializeField] protected int _rewardGold = 1;
-    [SerializeField] protected float _baseHP = 5;
-    [SerializeField] protected float _baseAtk = 1;
-    [SerializeField] protected float _baseSpeed = 1;
 
     private float _realHP;
     private float _realAtk;
     private float _realSpeed;
-
+    private float _rewardGold;
     private Action<BaseMonster> _deadAction;
 
     public int MonsterID { get { return _monsterID; } }
@@ -50,13 +45,18 @@ public class BaseMonster : MonoBehaviour
         _transform.position = nextPos;
     }
 
-    public void Init()
+    public void Init(MonsterData data)
     {
+        _monsterID = data.monsterID;
+        _spriteRenderer.sprite = data.sprite;
+
+        _realHP = data.baseHP;
+        _realAtk = data.baseAtk;
+        _realSpeed = data.baseSpeed;
+        _rewardGold = data.rewardGold;
+
         MonsterManager.Instance.Register(this);
         _deadAction = null;
-        _realHP = _baseHP;
-        _realAtk = _baseAtk;
-        _realSpeed = _baseSpeed;
     }
 
     public void TakeDamage(float dam)

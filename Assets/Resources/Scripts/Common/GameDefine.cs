@@ -18,4 +18,5 @@ public enum UpgradeType
     CircleAtk = 301,
     CircleAtkDelay = 302,
     CircleRadius = 303,
+    CircleCiritical = 304,
 }
