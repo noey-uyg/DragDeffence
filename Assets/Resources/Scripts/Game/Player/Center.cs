@@ -9,12 +9,16 @@ public class Center : MonoBehaviour
     private float _maxHP;
     private float _currentHP;
     private float _defense;
+    private float _visualRadius;
+
+    public float VisualRadius { get { return _visualRadius; } }
 
     public void Init()
     {
         _maxHP = PlayerStat.CurMaxHP;
         _currentHP = _maxHP;
         _defense = PlayerStat.CurDamageReduction;
+        _visualRadius = _spriteRenderer.bounds.extents.x;
 
         if(_hpSlider != null)
         {

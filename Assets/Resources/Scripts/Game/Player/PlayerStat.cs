@@ -9,7 +9,7 @@ public static class PlayerStat
     private const float BasePlayTime = 10f;
     private const float BaseGoldGainPercent = 1f;
     private const float BaseSpawnTime = 1.5f;
-    private const float BaseMonsterLevel = 0;
+    private const float BaseMonsterLevel = 6;
     // [Center]
     private const float BaseHP = 20f;
     private const float BaseDamageReduction = 0f;

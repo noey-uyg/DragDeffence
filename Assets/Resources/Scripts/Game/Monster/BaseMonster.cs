@@ -27,7 +27,10 @@ public class BaseMonster : MonoBehaviour
         Vector2 dir = targetPos - currentPos;
         float distance = dir.magnitude;
 
-        if(distance <= 0.5f)
+        float centerRadius = GameManager.Instance.Center.VisualRadius;
+        float attackRange = centerRadius + _visualRadius;
+
+        if(distance <= attackRange)
         {
             AttackCenter();
             return;
@@ -97,26 +100,4 @@ public class BaseMonster : MonoBehaviour
     {
         _deadAction = action;
     }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
-    {
-        // 런타임이 아닐 때도 대략적인 범위를 확인하기 위해 초기화 시점 외에도 계산
-        if (!Application.isPlaying && _spriteRenderer != null && _spriteRenderer.sprite != null)
-        {
-            _visualRadius = _spriteRenderer.bounds.extents.x * 0.9f;
-        }
-
-        if (_visualRadius > 0)
-        {
-            // 판정 범위를 녹색 원으로 표시
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, _visualRadius);
-
-            // 중심점을 작은 점으로 표시
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(transform.position, 0.05f);
-        }
-    }
-#endif
 }

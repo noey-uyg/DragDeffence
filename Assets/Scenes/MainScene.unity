@@ -4006,6 +4006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Center
   _hpSlider: {fileID: 584273777}
+  _spriteRenderer: {fileID: 1472806844}
 --- !u!1 &1491256718
 GameObject:
   m_ObjectHideFlags: 0
