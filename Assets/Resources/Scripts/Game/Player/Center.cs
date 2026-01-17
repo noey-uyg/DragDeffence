@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Center : MonoBehaviour
 {
     [SerializeField] private Slider _hpSlider;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private float _maxHP;
     private float _currentHP;

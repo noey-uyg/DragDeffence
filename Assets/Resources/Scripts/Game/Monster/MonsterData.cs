@@ -11,5 +11,7 @@ public class MonsterData : ScriptableObject
     public float baseAtk;
     public float baseSpeed;
 
+    public float baseScale;
+
     public bool isBoss;
 }

@@ -15,7 +15,7 @@ public static class PlayerStat
     private const float BaseDamageReduction = 0f;
     // [Circle]
     private const float BaseAtk = 1f;
-    private const float BaseAtkDelay = 1.5f;
+    private const float BaseAtkDelay = 1f;
     private const float BaseRadius = 0.25f;
     private const float BaseCritical = 0f;
 
