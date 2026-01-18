@@ -1,25 +1,32 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [System.Serializable]
 public class UpgradeData
 {
+    [Header("Info")]
     public UpgradeType Type;
     public int ID;
     public string Name;
-    public string Description;
+    [TextArea(3,5)] public string Description;
+
+    [Header("Status")]
     public int level;
     public int MaxLevel;
     public int[] cost;
     public float[] Value;
+
+    [Header("Connection")]
     public int connectID;
 }
 
-public class UpgradeNode : MonoBehaviour
+public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private UpgradeData _upgradeData;
     [SerializeField] private Button _nodeButton;
     [SerializeField] private Image _nodeImage;
+    [SerializeField] private Transform _transform;
 
     public UpgradeData UpgradeData { get { return _upgradeData; } }
 
@@ -44,9 +51,24 @@ public class UpgradeNode : MonoBehaviour
     {
         if (_upgradeData.level >= _upgradeData.MaxLevel) return;
 
-        _upgradeData.level++;
         float bonusValue = _upgradeData.Value[_upgradeData.level];
+        _upgradeData.level++;
         UpgradeManager.Instance.ApplyUpgrade(_upgradeData.Type, _upgradeData.ID, bonusValue);
         UpgradeManager.Instance.NotifyNodeCleared();
+        OnPointerEnter(null);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        bool isMax = _upgradeData.level >= _upgradeData.MaxLevel;
+        int cost = isMax ? 0 : _upgradeData.cost[_upgradeData.level];
+        string costStr = isMax ? "MAX" : cost.ToString();
+
+        TooltipManager.Instance.ShowUpgradeTooltip(_upgradeData.Name, _upgradeData.Description, costStr, _upgradeData.level, _upgradeData.MaxLevel, _transform.position);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        TooltipManager.Instance.HideTooltip();
     }
 }
