@@ -28,6 +28,14 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] private Image _nodeImage;
     [SerializeField] private Transform _transform;
 
+    [Header("Sprites")]
+    [SerializeField] private Sprite _normalSprite;
+    [SerializeField] private Sprite _highlightSprite;
+    [SerializeField] private Sprite _lockSprite;
+    [SerializeField] private Sprite _lockHighlightSprite;
+
+    private bool _isHover = false;
+
     public UpgradeData UpgradeData { get { return _upgradeData; } }
 
     public void RefreshNodeStatus()
@@ -45,6 +53,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private void SetActivate(bool active)
     {
         gameObject.SetActive(active);
+        UpdateNodeImage();
     }
 
     public void OnUpgradeClick()
@@ -53,6 +62,9 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         float bonusValue = _upgradeData.Value[_upgradeData.level];
         _upgradeData.level++;
+
+        UpdateNodeImage();
+
         UpgradeManager.Instance.ApplyUpgrade(_upgradeData.Type, _upgradeData.ID, bonusValue);
         UpgradeManager.Instance.NotifyNodeCleared();
         OnPointerEnter(null);
@@ -60,6 +72,9 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        _isHover = true;
+        UpdateNodeImage();
+
         bool isMax = _upgradeData.level >= _upgradeData.MaxLevel;
 
         int cost = isMax ? 0 : _upgradeData.cost[_upgradeData.level];
@@ -91,6 +106,16 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        _isHover = false;
+        UpdateNodeImage();
         TooltipManager.Instance.HideTooltip();
+    }
+
+    private void UpdateNodeImage()
+    {
+        bool isLocked = _upgradeData.level == 0;
+
+        if (isLocked) _nodeImage.sprite = _isHover ? _lockHighlightSprite : _lockSprite;
+        else _nodeImage.sprite = _isHover ? _highlightSprite : _normalSprite;
     }
 }

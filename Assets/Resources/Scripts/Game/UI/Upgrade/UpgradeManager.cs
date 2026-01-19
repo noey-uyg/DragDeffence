@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UpgradeManager : Singleton<UpgradeManager>
 {
-    [SerializeField] private List<UpgradeNode> _allNodes;
+    private List<UpgradeNode> _allNodes = new List<UpgradeNode>();
 
     public void InitializeAllNodes(GameObject panel)
     {

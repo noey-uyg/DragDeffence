@@ -5411,9 +5411,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 602668196}
     - target: {fileID: 2679210991947128652, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 2679210991947128652, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 2679210991947128652, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 602668196}
+    - target: {fileID: 2679210991947128652, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 2679210991947128652, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 2919150922949989008, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: m_Name
       value: UpgradePanel
@@ -5427,9 +5443,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1041385342}
     - target: {fileID: 3503108047492357997, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 3503108047492357997, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 3503108047492357997, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 1041385342}
+    - target: {fileID: 3503108047492357997, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 3503108047492357997, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 3737461740922635813, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5515,9 +5547,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2042249167}
     - target: {fileID: 4314249215562525380, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 4314249215562525380, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 4314249215562525380, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 2042249167}
+    - target: {fileID: 4314249215562525380, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 4314249215562525380, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 4509761340153207759, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5551,9 +5599,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 193459040}
     - target: {fileID: 5312351515197277512, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 5312351515197277512, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 5312351515197277512, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 193459040}
+    - target: {fileID: 5312351515197277512, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 5312351515197277512, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 5867956953194703166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -5571,9 +5635,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 390832080}
     - target: {fileID: 6150886600383348081, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 6150886600383348081, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 6150886600383348081, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 390832080}
+    - target: {fileID: 6150886600383348081, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 6150886600383348081, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 6796441233571861777, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: m_Transition
       value: 2
@@ -5603,9 +5683,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2069773045}
     - target: {fileID: 6917485447351165061, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 6917485447351165061, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 6917485447351165061, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 2069773045}
+    - target: {fileID: 6917485447351165061, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 6917485447351165061, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 6967582952786624973, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5615,13 +5711,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1113631481}
     - target: {fileID: 7155902692477192166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 7155902692477192166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 7155902692477192166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 1113631481}
     - target: {fileID: 7155902692477192166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 7155902692477192166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _upgradeData.Name
       value: CircleDamage
       objectReference: {fileID: 0}
+    - target: {fileID: 7155902692477192166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 7155902692477192166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _upgradeData.Description
       value: 'Increases attack power.\nCurrent attack power : {0}(<color=#FFD700>+{1}</color>)'
@@ -5671,17 +5783,49 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1428468155}
     - target: {fileID: 8699594705157151860, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 8699594705157151860, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 8699594705157151860, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 1428468155}
+    - target: {fileID: 8699594705157151860, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 8699594705157151860, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 8732080488873917648, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _transform
       value: 
       objectReference: {fileID: 1754641306}
     - target: {fileID: 8732080488873917648, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockSprite
+      value: 
+      objectReference: {fileID: 463636535422671397, guid: 90587be43c161ab46b4f9bf2363ea40e, type: 3}
+    - target: {fileID: 8732080488873917648, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _normalSprite
+      value: 
+      objectReference: {fileID: -4848319154898879857, guid: fe854bc6a17426f4eae5077e5399fd67, type: 3}
+    - target: {fileID: 8732080488873917648, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _rectTransform
       value: 
       objectReference: {fileID: 1754641306}
+    - target: {fileID: 8732080488873917648, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 5729145674238113194, guid: 03202969c4c7d684cbafd22d426a0a31, type: 3}
+    - target: {fileID: 8732080488873917648, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+      propertyPath: _lockHighlightSprite
+      value: 
+      objectReference: {fileID: -5264750370523526, guid: 9a1ccc890b7b68d4f9511f38a2290e59, type: 3}
     - target: {fileID: 9201957614704102168, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: m_Transition
       value: 2
