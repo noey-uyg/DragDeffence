@@ -61,10 +61,32 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         bool isMax = _upgradeData.level >= _upgradeData.MaxLevel;
-        int cost = isMax ? 0 : _upgradeData.cost[_upgradeData.level];
-        string costStr = isMax ? "MAX" : cost.ToString();
 
-        TooltipManager.Instance.ShowUpgradeTooltip(_upgradeData.Name, _upgradeData.Description, costStr, _upgradeData.level, _upgradeData.MaxLevel, _transform.position);
+        int cost = isMax ? 0 : _upgradeData.cost[_upgradeData.level];
+        string costStr = isMax ? "<color=red>(Max)</color>" : cost.ToString();
+
+        string finalDesc = _upgradeData.Description;
+        float curTotalValue = _upgradeData.Value[_upgradeData.level];
+
+        if (!isMax)
+        {
+            float nextTotalValue = _upgradeData.Value[_upgradeData.level + 1];
+            float additionalValue = nextTotalValue - curTotalValue;
+
+            finalDesc = string.Format(_upgradeData.Description, curTotalValue, additionalValue);
+        }
+        else
+        {
+            finalDesc = string.Format(_upgradeData.Description, curTotalValue, 0);
+        }
+        TooltipManager.Instance.ShowUpgradeTooltip(
+            _upgradeData.Name,
+            finalDesc,
+            costStr,
+            _upgradeData.level,
+            _upgradeData.MaxLevel,
+            _transform.position
+            );
     }
 
     public void OnPointerExit(PointerEventData eventData)

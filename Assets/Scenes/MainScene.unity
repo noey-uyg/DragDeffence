@@ -4006,7 +4006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8554111558904251084, guid: c02e0229d9812a445a6c5f1bd581bb68, type: 3}
+  m_Sprite: {fileID: -2556022116380328439, guid: 2b90621637eb1ee439893fef9244d931, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5624,7 +5624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7155902692477192166, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: _upgradeData.Description
-      value: Upgrades attack power.
+      value: 'Increases attack power.\nCurrent attack power : {0}(<color=#FFD700>+{1}</color>)'
       objectReference: {fileID: 0}
     - target: {fileID: 7380134868868943691, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
       propertyPath: m_Navigation.m_Mode
