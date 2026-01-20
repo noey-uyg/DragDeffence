@@ -14,4 +14,14 @@ public class TitlePanel : MonoBehaviour
         _upgradePopup.SetActive(true);
         GameManager.Instance.SetGameState(GameState.Upgrade);
     }
+
+    public void ExitButtonClick()
+    {
+        UpgradeManager.Instance.SaveData();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }

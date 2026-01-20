@@ -38,6 +38,7 @@ public class ViewZoomHandler : MonoBehaviour, IScrollHandler
 
     public void OnResetView()
     {
+        UpgradeManager.Instance.ResetData();
         _content.position = _originalPosition;
     }
 }

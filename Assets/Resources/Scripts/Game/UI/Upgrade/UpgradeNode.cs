@@ -66,6 +66,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         UpdateNodeImage();
 
         UpgradeManager.Instance.ApplyUpgrade(_upgradeData.Type, _upgradeData.ID, bonusValue);
+        UpgradeManager.Instance.SaveData();
         UpgradeManager.Instance.NotifyNodeCleared();
         OnPointerEnter(null);
     }
@@ -88,12 +89,13 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             float nextTotalValue = _upgradeData.Value[_upgradeData.level + 1];
             float additionalValue = nextTotalValue - curTotalValue;
 
-            finalDesc = string.Format(_upgradeData.Description, curTotalValue, additionalValue);
+            finalDesc = string.Format(_upgradeData.Description, additionalValue);
         }
         else
         {
-            finalDesc = string.Format(_upgradeData.Description, curTotalValue, 0);
+            finalDesc = string.Format(_upgradeData.Description, 0);
         }
+
         TooltipManager.Instance.ShowUpgradeTooltip(
             _upgradeData.Name,
             finalDesc,
