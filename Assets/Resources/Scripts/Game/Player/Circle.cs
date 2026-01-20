@@ -1,16 +1,27 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Circle : MonoBehaviour
 {
     [SerializeField] private Transform _transform;
+    [SerializeField] private SpriteRenderer _sr;
+
+    [SerializeField] private Color _attackColor;
+
+    // 모션 시간
+    private WaitForSeconds _wfs = new WaitForSeconds(0.1f);
+    private float _scaleMultiplier = 1.1f;
 
     private float _curRadius;
     private int _curAtk;
     private float _curDelay;
-
     private float _timer = 0f;
+
+    private Vector3 _baseScale;
+    private Color _baseColor;
+    private Coroutine _motionCoroutine;
 
     public float Radius { get { return _curRadius; } }
     public int AtkDamage { get { return _curAtk; } }
@@ -24,8 +35,10 @@ public class Circle : MonoBehaviour
         _curAtk = Mathf.RoundToInt(PlayerStat.CurAtk);
 
         float diameter = _curRadius * 2f;
-        _transform.localScale = new Vector3(diameter, diameter, 1f);
+        _baseScale = new Vector3(diameter, diameter, 1f);
+        _transform.localScale = _baseScale;
 
+        _baseColor = _sr.color;
         _timer = 0f;
     }
 
@@ -39,5 +52,24 @@ public class Circle : MonoBehaviour
     public void ResetTimer()
     {
         _timer = 0f;
+    }
+
+    public void PlayAttackMotion()
+    {
+        if (_motionCoroutine != null) StopCoroutine(_motionCoroutine);
+
+        _motionCoroutine = StartCoroutine(IEAttackMotion());
+    }
+
+    private IEnumerator IEAttackMotion()
+    {
+        _transform.localScale = _baseScale * _scaleMultiplier;
+        _sr.color = _attackColor;
+
+        yield return _wfs;
+
+        _transform.localScale = _baseScale;
+        _sr.color = _baseColor;
+        _motionCoroutine = null;
     }
 }

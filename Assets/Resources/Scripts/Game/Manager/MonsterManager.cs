@@ -19,12 +19,15 @@ public class MonsterManager : Singleton<MonsterManager>
 
         float dt = Time.deltaTime;
         Vector2 circlePos = _circle.GetTransform.position;
-
         bool canAttack = _circle.IsReady();
         float circleRadius = _circle.Radius;
 
+        if(canAttack) _circle.PlayAttackMotion();
+
         for (int i = _monsters.Count - 1; i >= 0; i--)
         {
+            if(i>=_monsters.Count || _monsters[i] == null) continue;
+
             // 이동
             _monsters[i].MoveToTarget(_targetPosition, dt);
 
@@ -56,25 +59,5 @@ public class MonsterManager : Singleton<MonsterManager>
         }
 
         _monsters.Clear();
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (_circle == null) return;
-
-        // Circle의 공격 범위 표시 (하늘색)
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(_circle.GetTransform.position, _circle.Radius);
-
-        // 재생 중일 때 모든 몬스터의 판정 범위 표시 (반투명 빨간색)
-        if (Application.isPlaying)
-        {
-            Gizmos.color = new Color(1f, 0f, 0f, 0.3f);
-            foreach (var monster in _monsters)
-            {
-                if (monster != null)
-                    Gizmos.DrawWireSphere(monster.GetTransform.position, monster.VisualRadius);
-            }
-        }
     }
 }

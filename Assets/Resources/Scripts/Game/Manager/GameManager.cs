@@ -65,6 +65,7 @@ public class GameManager : DontDestroySingleton<GameManager>
     private void OnGameOver()
     {
         MonsterManager.Instance.ClearAllMonsters();
+        _circle.gameObject.SetActive(false);
         _mainHUD.gameObject.SetActive(false);
         float totalSurvivalTime = Time.time - _playStartTime;
         int earnedGold = PlayerStat.CurGold - _goldAtStart;
