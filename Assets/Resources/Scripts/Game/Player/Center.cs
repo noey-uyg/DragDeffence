@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,11 @@ public class Center : MonoBehaviour
 {
     [SerializeField] private Slider _hpSlider;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+
+    [SerializeField] private Material _hitMaterial;
+    [SerializeField] private Material _originMaterial;
+    private Coroutine _flashCoroutine;
+    private WaitForSeconds _fwfs = new WaitForSeconds(0.05f);
 
     private float _maxHP;
     private float _currentHP;
@@ -18,6 +24,7 @@ public class Center : MonoBehaviour
         _maxHP = PlayerStat.CurMaxHP;
         _currentHP = _maxHP;
         _defense = PlayerStat.CurDamageReduction;
+        _spriteRenderer.material = _originMaterial;
         _visualRadius = _spriteRenderer.bounds.extents.x;
 
         if(_hpSlider != null)
@@ -37,9 +44,27 @@ public class Center : MonoBehaviour
             _hpSlider.value = _currentHP;
         }
 
-        if(_currentHP <= 0f)
+        PlayHitFlash();
+
+        if (_currentHP <= 0f)
         {
             GameManager.Instance.SetGameState(GameState.GameOver);
         }
+    }
+
+    private void PlayHitFlash()
+    {
+        if (_flashCoroutine != null) StopCoroutine(_flashCoroutine);
+        _flashCoroutine = StartCoroutine(IEHitFlash());
+    }
+
+    private IEnumerator IEHitFlash()
+    {
+        _spriteRenderer.material = _hitMaterial;
+
+        yield return _fwfs;
+
+        _spriteRenderer.material = _originMaterial;
+        _flashCoroutine = null;
     }
 }

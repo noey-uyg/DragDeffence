@@ -4865,6 +4865,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Center
   _hpSlider: {fileID: 584273777}
   _spriteRenderer: {fileID: 1472806844}
+  _hitMaterial: {fileID: 2100000, guid: 07be19c4894163642ad666ceda66a253, type: 2}
+  _originMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
 --- !u!1 &1491256718
 GameObject:
   m_ObjectHideFlags: 0

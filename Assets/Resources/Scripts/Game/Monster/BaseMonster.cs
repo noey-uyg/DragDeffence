@@ -6,7 +6,6 @@ using UnityEngine;
 public class BaseMonster : MonoBehaviour
 {
     [SerializeField] protected int _monsterID;
-    [SerializeField] protected Rigidbody2D _rigidBody;
     [SerializeField] protected SpriteRenderer _spriteRenderer;
     [SerializeField] protected Transform _transform;
 
@@ -16,6 +15,11 @@ public class BaseMonster : MonoBehaviour
     private float _rewardGold;
     private float _visualRadius;
     private Action<BaseMonster> _deadAction;
+
+    [SerializeField] private Material _hitMaterial;
+    [SerializeField] private Material _originMaterial;
+    private Coroutine _flashCoroutine;
+    private WaitForSeconds _fwfs = new WaitForSeconds(0.05f);
 
     public int MonsterID { get { return _monsterID; } }
     public Transform GetTransform { get { return _transform; } }
@@ -54,6 +58,7 @@ public class BaseMonster : MonoBehaviour
     {
         _monsterID = data.monsterID;
         _spriteRenderer.sprite = data.sprite;
+        _spriteRenderer.material = _originMaterial;
 
         _transform.localScale = new Vector3(data.baseScale, data.baseScale, 1);
         _visualRadius = _spriteRenderer.bounds.extents.x;
@@ -70,6 +75,8 @@ public class BaseMonster : MonoBehaviour
     public void TakeDamage(float dam)
     {
         _realHP -= dam;
+        PlayHitFlash();
+
         if (_realHP <= 0)
         {
             Die(true);
@@ -80,6 +87,22 @@ public class BaseMonster : MonoBehaviour
     {
         GameManager.Instance.OnMonsterAttackCenter(_realAtk);
         Die(false);
+    }
+
+    private void PlayHitFlash()
+    {
+        if (_flashCoroutine != null) StopCoroutine(_flashCoroutine);
+        _flashCoroutine = StartCoroutine(IEHitFlash());
+    }
+
+    private IEnumerator IEHitFlash()
+    {
+        _spriteRenderer.material = _hitMaterial;
+        
+        yield return _fwfs;
+
+        _spriteRenderer.material = _originMaterial;
+        _flashCoroutine = null;
     }
 
     public void Die(bool isKillByPlayer)
