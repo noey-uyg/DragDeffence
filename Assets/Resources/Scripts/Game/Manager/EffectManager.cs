@@ -30,7 +30,7 @@ public static class EffectManager
 
         float duration = ps.main.duration;
 
-        if (_wfsCache.TryGetValue(duration, out var wfs))
+        if (!_wfsCache.TryGetValue(duration, out var wfs))
         {
             wfs = new WaitForSeconds(duration);
             _wfsCache.Add(duration, wfs);

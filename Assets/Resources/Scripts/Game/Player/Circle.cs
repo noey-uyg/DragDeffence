@@ -64,7 +64,8 @@ public class Circle : MonoBehaviour
 
         _motionCoroutine = StartCoroutine(IEAttackMotion());
 
-        EffectManager.PlayEffect(EffectType.CircleHit, _transform.position, Quaternion.identity, _baseScale);
+        Vector3 effectScale = new Vector3(_curRadius, _curRadius, 1);
+        EffectManager.PlayEffect(EffectType.CircleHit, _transform.position, Quaternion.identity, effectScale);
     }
 
     private IEnumerator IEAttackMotion()
