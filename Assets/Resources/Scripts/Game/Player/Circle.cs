@@ -28,6 +28,11 @@ public class Circle : MonoBehaviour
     public float DamageDleay { get { return _curDelay; } }
     public Transform GetTransform {  get { return _transform; } }
 
+    private void Start()
+    {
+        _baseColor = _sr.color;
+    }
+
     public void Init()
     {
         _curRadius = PlayerStat.CurRadius;
@@ -38,7 +43,6 @@ public class Circle : MonoBehaviour
         _baseScale = new Vector3(diameter, diameter, 1f);
         _transform.localScale = _baseScale;
 
-        _baseColor = _sr.color;
         _timer = 0f;
     }
 
@@ -59,6 +63,8 @@ public class Circle : MonoBehaviour
         if (_motionCoroutine != null) StopCoroutine(_motionCoroutine);
 
         _motionCoroutine = StartCoroutine(IEAttackMotion());
+
+        EffectManager.PlayEffect(EffectType.CircleHit, _transform.position, Quaternion.identity, _baseScale);
     }
 
     private IEnumerator IEAttackMotion()

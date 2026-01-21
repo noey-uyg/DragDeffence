@@ -20,3 +20,10 @@ public enum UpgradeType
     CircleRadius = 303,
     CircleCiritical = 304,
 }
+
+public enum EffectType
+{
+    CircleHit,
+    CenterDam,
+    MonsterDam,
+}
