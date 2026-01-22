@@ -1,22 +1,23 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using UnityEditor;
 
 public static class PlayerStat
 {
     // [초기 수치]
     // [Game]
-    private const float BasePlayTime = 10f;
+    private const float BasePlayTime = 100000f;
     private const float BaseGoldGainPercent = 1f;
-    private const float BaseSpawnTime = 1.5f;
-    private const float BaseMonsterLevel = 0;
+    private const float BaseSpawnTime = 0.1f;
+    private const float BaseMonsterLevel = 6;
     // [Center]
     private const float BaseHP = 20f;
     private const float BaseDamageReduction = 0f;
     // [Circle]
     private const float BaseAtk = 1f;
     private const float BaseAtkDelay = 0.15f;
-    private const float BaseRadius = 0.25f;
+    private const float BaseRadius = 1f;
     private const float BaseCritical = 0f;
 
     // [현재 수치]
@@ -25,9 +26,10 @@ public static class PlayerStat
     public static float CurGoldGainPercent;
     public static float CurSpawnTime;
     public static float CurMonsterLevel;
-    private static int _curGold;
-    public static int CurGold {get => _curGold; set { _curGold = value; OnGoldChanged?.Invoke(_curGold); } }
-    public static System.Action<int> OnGoldChanged;
+    private static BigInteger _curGold;
+    public static BigInteger CurGold {get => _curGold; set { _curGold = value; OnGoldChanged?.Invoke(_curGold); } }
+    public static System.Action<BigInteger> OnGoldChanged;
+    public static string CurGoldString { get => CurrencyFomatter.FormatBigInt(CurGold); }
     // [Center]
     public static float CurMaxHP;
     public static float CurDamageReduction;

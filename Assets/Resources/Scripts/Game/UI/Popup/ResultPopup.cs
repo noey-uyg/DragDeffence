@@ -1,3 +1,4 @@
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,11 +13,11 @@ public class ResultPopup : PopupBase
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private Button _mainButton;
 
-    public void Init(int earnedGold, float survivalTime)
+    public void Init(BigInteger earnedGold, float survivalTime)
     {
         _survivalTimeText.text = $"{survivalTime:F2}s";
-        _earnedGoldText.text = $"+ {earnedGold:N0}";
-        _totalGoldText.text = $"{PlayerStat.CurGold:N0}";
+        _earnedGoldText.text = $"+ {CurrencyFomatter.FormatBigInt(earnedGold)}";
+        _totalGoldText.text = PlayerStat.CurGoldString;
 
         _retryButton.onClick.RemoveAllListeners();
         _retryButton.onClick.AddListener(() =>

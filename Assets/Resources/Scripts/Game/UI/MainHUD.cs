@@ -1,9 +1,11 @@
 using DG.Tweening;
 using System.Collections;
+using System.Numerics;
 using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Vector3 = UnityEngine.Vector3;
 
 public class MainHUD : Singleton<MainHUD>
 {
@@ -79,8 +81,8 @@ public class MainHUD : Singleton<MainHUD>
         _goldIconTransform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.2f, 5, 1f);
     }
 
-    private void UpdateGoldUI(int gold)
+    private void UpdateGoldUI(BigInteger gold)
     {
-        _goldText.text = gold.ToString("N0");        
+        _goldText.text = CurrencyFomatter.FormatBigInt(gold);        
     }
 }

@@ -1,3 +1,4 @@
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 
@@ -33,8 +34,8 @@ public class UpgradePanel : MonoBehaviour
         GameManager.Instance.SetGameState(GameState.Lobby);
     }
 
-    private void UpdateGoldUI(int gold)
+    private void UpdateGoldUI(BigInteger gold)
     {
-        _goldText.text = gold.ToString("N0");
+        _goldText.text = CurrencyFomatter.FormatBigInt(gold);
     }
 }

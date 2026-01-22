@@ -73,6 +73,12 @@ public class BaseMonster : MonoBehaviour
         _realSpeed = data.baseSpeed;
         _rewardGold = data.rewardGold;
 
+        if(_flashCoroutine != null)
+        {
+            StopCoroutine(_flashCoroutine);
+            _flashCoroutine = null;
+        }
+
         MonsterManager.Instance.Register(this);
         _deadAction = null;
     }
@@ -80,14 +86,15 @@ public class BaseMonster : MonoBehaviour
     public void TakeDamage(float dam)
     {
         _realHP -= dam;
-        PlayHitFlash();
-
-        ShowDamageText(dam);
 
         if (_realHP <= 0)
         {
             Die(true);
+            return;
         }
+
+        PlayHitFlash();
+        ShowDamageText(dam);
     }
 
     private void ShowDamageText(float dam)

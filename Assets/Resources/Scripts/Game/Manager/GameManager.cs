@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Numerics;
 using UnityEngine;
 
 public class GameManager : DontDestroySingleton<GameManager>
@@ -11,7 +12,7 @@ public class GameManager : DontDestroySingleton<GameManager>
     [SerializeField] private MainHUD _mainHUD;
 
     private float _playStartTime;
-    private int _goldAtStart;
+    private BigInteger _goldAtStart;
 
     public GameState CurrentState { get { return _state; } }
     public Center Center { get { return _center; } }
@@ -84,7 +85,7 @@ public class GameManager : DontDestroySingleton<GameManager>
         _mainHUD.gameObject.SetActive(false);
 
         float totalSurvivalTime = Mathf.Min(Time.time - _playStartTime, PlayerStat.CurPlayTime);
-        int earnedGold = PlayerStat.CurGold - _goldAtStart;
+        BigInteger earnedGold = PlayerStat.CurGold - _goldAtStart;
 
         DataManager.SaveGoldData();
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 [System.Serializable]
@@ -39,13 +40,13 @@ public static class DataManager
     #region ∞ÒµÂ µ•¿Ã≈Õ
     public static void SaveGoldData()
     {
-        PlayerPrefs.SetInt(GoldSaveKey, PlayerStat.CurGold);
+        PlayerPrefs.SetString(GoldSaveKey, PlayerStat.CurGold.ToString());
         PlayerPrefs.Save();
     }
 
     public static void LoadGoldData()
     {
-        PlayerStat.CurGold = PlayerPrefs.GetInt(GoldSaveKey, 0);
+        PlayerStat.CurGold = BigInteger.Parse(PlayerPrefs.GetString(GoldSaveKey, "0"));
     }
     #endregion
 
