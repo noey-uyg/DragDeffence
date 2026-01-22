@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class GameManager : DontDestroySingleton<GameManager>
@@ -14,6 +15,14 @@ public class GameManager : DontDestroySingleton<GameManager>
 
     public GameState CurrentState { get { return _state; } }
     public Center Center { get { return _center; } }
+
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+
+        DOTween.Init(true, true, LogBehaviour.ErrorsOnly);
+        DOTween.SetTweensCapacity(500, 50);
+    }
 
     public void SetGameState(GameState state)
     {

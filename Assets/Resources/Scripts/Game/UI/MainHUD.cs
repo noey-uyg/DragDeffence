@@ -1,17 +1,22 @@
+using DG.Tweening;
 using System.Collections;
 using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainHUD : MonoBehaviour
+public class MainHUD : Singleton<MainHUD>
 {
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private TextMeshProUGUI _goldText;
+    [SerializeField] private Transform _goldIconTransform;
+    [SerializeField] private Camera _mainCamera;
 
     private Coroutine _timerCoroutine;
     private readonly WaitForSeconds _timerWFS = new WaitForSeconds(0.01f);
     private readonly StringBuilder _sb = new StringBuilder(16);
+
+    public Vector3 GoldIconWorldPosition => _goldIconTransform.position;
 
     private void OnEnable()
     {
@@ -68,8 +73,14 @@ public class MainHUD : MonoBehaviour
         GameManager.Instance.SetGameState(GameState.GameOver);
     }
 
+    public void PunchGoldIcon()
+    {
+        _goldIconTransform.DOKill(true);
+        _goldIconTransform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.2f, 5, 1f);
+    }
+
     private void UpdateGoldUI(int gold)
     {
-        _goldText.text = gold.ToString("N0");
+        _goldText.text = gold.ToString("N0");        
     }
 }

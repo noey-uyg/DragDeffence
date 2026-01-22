@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Threading;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BaseMonster : MonoBehaviour
 {
@@ -20,6 +22,9 @@ public class BaseMonster : MonoBehaviour
     [SerializeField] private Material _originMaterial;
     private Coroutine _flashCoroutine;
     private WaitForSeconds _fwfs = new WaitForSeconds(0.05f);
+
+    [SerializeField] private Color _normalDamColor;
+    [SerializeField] private Color _criticalDamColor;
 
     public int MonsterID { get { return _monsterID; } }
     public Transform GetTransform { get { return _transform; } }
@@ -77,9 +82,21 @@ public class BaseMonster : MonoBehaviour
         _realHP -= dam;
         PlayHitFlash();
 
+        ShowDamageText(dam);
+
         if (_realHP <= 0)
         {
             Die(true);
+        }
+    }
+
+    private void ShowDamageText(float dam)
+    {
+        TextEffect te = EffectUIPool.Instance.Get<TextEffect>();
+
+        if (te != null)
+        {
+            te.Show(Mathf.RoundToInt(dam).ToString(), _transform.position, Color.yellow);
         }
     }
 
@@ -111,6 +128,8 @@ public class BaseMonster : MonoBehaviour
 
         if (isKillByPlayer)
         {
+            SpawnGoldFlyEffects();
+
             int finalGold = Mathf.RoundToInt(_rewardGold * PlayerStat.CurGoldGainPercent);
             PlayerStat.CurGold += finalGold;
         }
@@ -122,5 +141,22 @@ public class BaseMonster : MonoBehaviour
     public void SetDeadAction(Action<BaseMonster> action)
     {
         _deadAction = action;
+    }
+
+    private void SpawnGoldFlyEffects()
+    {
+        Vector3 targetPos = MainHUD.Instance.GoldIconWorldPosition;
+
+        int count = Math.Max(7, Random.Range(0, (int)PlayerStat.CurMonsterLevel));
+
+        for(int i = 0; i < count; i++)
+        {
+            var ge = EffectUIPool.Instance.Get<GoldEffect>();
+            if (ge != null)
+            {
+                Vector3 startPos = _transform.position + (Vector3)Random.insideUnitCircle * 0.3f;
+                ge.Show(startPos, targetPos);
+            }
+        }
     }
 }
