@@ -58,6 +58,20 @@ public class Circle : MonoBehaviour
         _timer = 0f;
     }
 
+    public (int dam, bool isCri) GetCalcDamage()
+    {
+        int baseAtk = Mathf.RoundToInt(PlayerStat.CurAtk);
+        bool isCri = Random.Range(0f, 100f) <= PlayerStat.CurCritical;
+
+        if (isCri)
+        {
+            int criDam = Mathf.RoundToInt(baseAtk * PlayerStat.CurCriticalDam);
+            return (criDam, true);
+        }
+
+        return (baseAtk, false);
+    }
+
     public void PlayAttackMotion()
     {
         if (_motionCoroutine != null) StopCoroutine(_motionCoroutine);

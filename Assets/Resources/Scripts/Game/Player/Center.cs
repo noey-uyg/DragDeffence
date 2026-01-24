@@ -67,4 +67,18 @@ public class Center : MonoBehaviour
         _spriteRenderer.material = _originMaterial;
         _flashCoroutine = null;
     }
+
+    public void Heal(float amount)
+    {
+        if (_currentHP <= 0f) return;
+
+        _currentHP += amount;
+
+        if (_currentHP > _maxHP) _currentHP = _maxHP;
+
+        if (_hpSlider != null)
+        {
+            _hpSlider.value = _currentHP;
+        }
+    }
 }

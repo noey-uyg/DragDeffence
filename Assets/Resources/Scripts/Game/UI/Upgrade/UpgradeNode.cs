@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.ComponentModel;
 using System.Numerics;
 using UnityEngine;
@@ -11,16 +12,24 @@ public class UpgradeData
     public UpgradeType Type;
     public int ID;
     public string Name;
-    [TextArea(3,5)] public string Description;
+    [TextArea(3, 5)] public string Description;
 
     [Header("Status")]
     public int level;
     public int MaxLevel;
-    public BigInteger[] cost;
+    public string[] cost;
     public float[] Value;
 
     [Header("Connection")]
     public int connectID;
+    public bool connectMax;
+
+    public BigInteger GetCurrentCost()
+    {
+        if (level >= MaxLevel || string.IsNullOrEmpty(cost[level])) return 0;
+
+        return BigInteger.Parse(cost[level]);
+    }
 }
 
 public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -31,6 +40,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] private Button _nodeButton;
     [SerializeField] private Image _nodeImage;
     [SerializeField] private Transform _transform;
+    [SerializeField] private GameObject[] _lines;
 
     [Header("Sprites")]
     [SerializeField] private Sprite _normalSprite;
@@ -50,7 +60,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             return;
         }
 
-        bool isParentClear = UpgradeManager.Instance.CheckIfCleared(_upgradeData.connectID);
+        bool isParentClear = UpgradeManager.Instance.CheckIfCleared(_upgradeData.connectID, _upgradeData.connectMax);
         SetActivate(isParentClear);
     }
 
@@ -58,11 +68,28 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         gameObject.SetActive(active);
         UpdateNodeImage();
+        SetActivateLine(active);
+    }
+
+    private void SetActivateLine(bool active)
+    {
+        if (_lines == null || _lines.Length == 0) return;
+
+        for(int i=0;i<_lines.Length;i++)
+        {
+            _lines[i].SetActive(active);
+        }
     }
 
     public void OnUpgradeClick()
     {
         if (_upgradeData.level >= _upgradeData.MaxLevel) return;
+
+        BigInteger curCost = _upgradeData.GetCurrentCost();
+
+        if (PlayerStat.CurGold < curCost) return;
+
+        PlayerStat.CurGold -= curCost;
 
         float bonusValue = _upgradeData.Value[_upgradeData.level];
         _upgradeData.level++;
@@ -83,8 +110,9 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         bool isMax = _upgradeData.level >= _upgradeData.MaxLevel;
 
-        BigInteger cost = isMax ? 0 : _upgradeData.cost[_upgradeData.level];
-        string costStr = isMax ? "<color=red>(Max)</color>" : cost.ToString();
+        string costStr = isMax ?
+            "<color=red>(Max)</color>" :
+            CurrencyFomatter.FormatBigInt(_upgradeData.GetCurrentCost());
 
         string finalDesc = _upgradeData.Description;
         float curTotalValue = _upgradeData.Value[_upgradeData.level];

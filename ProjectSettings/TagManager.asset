@@ -48,5 +48,11 @@ TagManager:
   - name: Monster
     uniqueID: 1778297757
     locked: 0
+  - name: UpgradeNode
+    uniqueID: 2287357175
+    locked: 0
+  - name: Line
+    uniqueID: 1139601247
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -40,7 +40,8 @@ public class MonsterManager : Singleton<MonsterManager>
 
                 if (sqrDist <= sqrCheckRadius)
                 {
-                    _monsters[i].TakeDamage(_circle.AtkDamage);
+                    var (finalDam, isCritical) = _circle.GetCalcDamage();
+                    _monsters[i].TakeDamage(finalDam, isCritical);
                 }
             }
         }

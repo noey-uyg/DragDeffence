@@ -84,10 +84,10 @@ public class BaseMonster : MonoBehaviour
         _deadAction = null;
     }
 
-    public void TakeDamage(float dam)
+    public void TakeDamage(float dam, bool isCritical = false)
     {
         _realHP -= dam;
-
+        ApplyVampire();
         if (_realHP <= 0)
         {
             Die(true);
@@ -95,16 +95,18 @@ public class BaseMonster : MonoBehaviour
         }
 
         PlayHitFlash();
-        ShowDamageText(dam);
+        ShowDamageText(dam, isCritical);
     }
 
-    private void ShowDamageText(float dam)
+    private void ShowDamageText(float dam, bool isCritical = false)
     {
         TextEffect te = EffectUIPool.Instance.Get<TextEffect>();
 
         if (te != null)
         {
-            te.Show(Mathf.RoundToInt(dam).ToString(), _transform.position, Color.yellow);
+            Color finalColor = isCritical ? Color.orange : Color.yellow;
+
+            te.Show(Mathf.RoundToInt(dam).ToString(), _transform.position, finalColor);
         }
     }
 
@@ -137,13 +139,20 @@ public class BaseMonster : MonoBehaviour
         if (isKillByPlayer)
         {
             SpawnGoldFlyEffects();
-
-            int finalGold = Mathf.RoundToInt(_rewardGold * PlayerStat.CurGoldGainPercent);
-            PlayerStat.CurGold += finalGold;
+            GetGold();
         }
 
         MonsterPool.Instance.ReleaseNormalMonster(this);
         MonsterManager.Instance.Unregister(this);
+    }
+
+    private void GetGold()
+    {
+        int finalGold = Mathf.RoundToInt(_rewardGold * PlayerStat.CurGoldGainPercent);
+
+        if (Random.Range(0f, 100f) <= PlayerStat.CurGoldBonusChance) finalGold *= 2;
+
+        PlayerStat.CurGold += finalGold;
     }
 
     public void SetDeadAction(Action<BaseMonster> action)
@@ -165,6 +174,14 @@ public class BaseMonster : MonoBehaviour
                 Vector3 startPos = _transform.position + (Vector3)Random.insideUnitCircle * 0.3f;
                 ge.Show(startPos, targetPos);
             }
+        }
+    }
+
+    private void ApplyVampire()
+    {
+        if(Random.Range(0f,100f) <= PlayerStat.CurVampire)
+        {
+            GameManager.Instance.Center.Heal(1);
         }
     }
 }

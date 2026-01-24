@@ -20,13 +20,15 @@ public class UpgradeManager : Singleton<UpgradeManager>
         NotifyNodeCleared();
     }
 
-    public bool CheckIfCleared(int id)
+    public bool CheckIfCleared(int id, bool maxCheck)
     {
         foreach(var node in _allNodes)
         {
             if(node.UpgradeData.ID == id)
             {
-                return node.UpgradeData.level > 0;
+                return maxCheck ? 
+                    node.UpgradeData.level >= node.UpgradeData.MaxLevel :
+                    node.UpgradeData.level > 0;
             }
         }
 
