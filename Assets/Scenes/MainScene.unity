@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e72251c5305d4349afb27ec8fb2fd78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
-  _nodePrefab: {fileID: 4762234306997891477, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
+  _nodePrefab: {fileID: 5077857907410857321, guid: 69d3864ff2ff3ed4f8d551a9eb112a09, type: 3}
   _contentParent: {fileID: 1646041485}
   _upgradeTreeConnector: {fileID: 255350298}
 --- !u!114 &255350298
@@ -1243,8 +1243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1867450f8f872e645998c29a256c8c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeTreeConnector
-  _linePrefab: {fileID: 8840847476681076863, guid: 0703296b328d9584fbe2181a5acbdc94, type: 3}
-  _parent: {fileID: 1877093297}
+  _linePrefab: {fileID: -4511923227783803811, guid: 0703296b328d9584fbe2181a5acbdc94, type: 3}
+  _parent: {fileID: 315487515}
 --- !u!1 &259429877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,6 +1374,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2092657717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &315487515 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8852203218123936359, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
+  m_PrefabInstance: {fileID: 1877093295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &322087089
 GameObject:
   m_ObjectHideFlags: 0
@@ -6076,11 +6081,6 @@ PrefabInstance:
 --- !u!224 &1877093296 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3737461740922635813, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
-  m_PrefabInstance: {fileID: 1877093295}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1877093297 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8852203218123936359, guid: f5e26ebb5aeb9224b810c609405cd561, type: 3}
   m_PrefabInstance: {fileID: 1877093295}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1877093300 stripped

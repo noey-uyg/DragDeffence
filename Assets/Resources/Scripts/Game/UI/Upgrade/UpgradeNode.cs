@@ -120,7 +120,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             float nextTotalValue = _upgradeData.Value[_upgradeData.level + 1];
             float additionalValue = nextTotalValue - curTotalValue;
 
-            finalDesc = string.Format(_upgradeData.Description, additionalValue);
+            finalDesc = string.Format(_upgradeData.Description, additionalValue.ToString("0.##"));
         }
         else
         {

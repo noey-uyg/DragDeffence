@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class UpgradeTreeConnector : MonoBehaviour
 {
-    [SerializeField] private GameObject _linePrefab;
+    [SerializeField] private UpgradeLine _linePrefab;
     [SerializeField] private Transform _parent;
 
     private Dictionary<int, RectTransform> nodeRects = new Dictionary<int, RectTransform>();
+    private List<UpgradeLine> _allLines = new List<UpgradeLine>();
 
     public void SetNodeRect(int id, RectTransform rectTransform)
     {
@@ -21,17 +22,22 @@ public class UpgradeTreeConnector : MonoBehaviour
         {
             if(v.UpgradeData.connectID != 0 && nodeRects.ContainsKey(v.UpgradeData.connectID))
             {
-                DrawLine(nodeRects[v.UpgradeData.connectID], nodeRects[v.UpgradeData.ID]);
+                UpgradeNode parent = datas.Find(x => x.UpgradeData.ID == v.UpgradeData.connectID);
+                if(parent != null)
+                {
+                    DrawLine(parent, v);
+                }
             }
         }
     }
 
-    private void DrawLine(RectTransform start, RectTransform end)
+    private void DrawLine(UpgradeNode parent, UpgradeNode child)
     {
-        GameObject lineObj = Instantiate(_linePrefab, _parent);
-        lineObj.name = $"Line_{start.name}_to_{end.name}";
-        
-        RectTransform lineRect = lineObj.GetComponent<RectTransform>();
+        var line = Instantiate(_linePrefab, _parent);
+        RectTransform lineRect = line.GetComponent<RectTransform>();
+
+        RectTransform start = nodeRects[parent.UpgradeData.ID];
+        RectTransform end = nodeRects[child.UpgradeData.ID];
 
         Vector2 startPos = start.anchoredPosition;
         Vector2 endPos = end.anchoredPosition;
@@ -46,5 +52,16 @@ public class UpgradeTreeConnector : MonoBehaviour
         lineRect.pivot = new Vector2(0, 0.5f);
         lineRect.anchoredPosition = startPos;
         lineRect.localRotation = Quaternion.Euler(0, 0, angle);
+
+        line.Init(parent, child.UpgradeData.connectMax);
+        _allLines.Add(line);
+    }
+
+    public void RefreshAllLines()
+    {
+        foreach(var line in _allLines)
+        {
+            line.RefreshLine();
+        }
     }
 }
