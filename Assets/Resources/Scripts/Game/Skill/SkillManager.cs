@@ -86,7 +86,7 @@ public class SkillManager : Singleton<SkillManager>
 
     public void TryBlast()
     {
-        //if (!SkillStat.IsUnlocked(UpgradeType.SkillDeathBlast)) return;
+        if (!SkillStat.IsUnlocked(UpgradeType.SkillDeathBlast)) return;
 
         _blastAttackCount++;
 
