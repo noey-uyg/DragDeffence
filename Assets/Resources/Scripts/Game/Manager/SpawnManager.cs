@@ -45,12 +45,17 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private void Spawn()
     {
-        MonsterData selectData = GetMonsterDataByLevel((int)PlayerStat.CurMonsterLevel);
+        int spawnCount = Random.Range(1, ((int)PlayerStat.CurMonsterLevel + 1) * 3);
 
-        BaseMonster monster = MonsterPool.Instance.GetNormalMonster();
-        monster.Init(selectData);
-        monster.GetTransform.position = _spawnPoints[Random.Range(0, _spawnPoints.Length)].position;
-        monster.GetTransform.SetParent(_monsterTransform);
+        for(int i = 0; i < spawnCount; i++)
+        {
+            MonsterData selectData = GetMonsterDataByLevel((int)PlayerStat.CurMonsterLevel);
+
+            BaseMonster monster = MonsterPool.Instance.GetNormalMonster();
+            monster.Init(selectData);
+            monster.GetTransform.position = _spawnPoints[Random.Range(0, _spawnPoints.Length)].position;
+            monster.GetTransform.SetParent(_monsterTransform);
+        }
     }
 
     private MonsterData GetMonsterDataByLevel(int level)
