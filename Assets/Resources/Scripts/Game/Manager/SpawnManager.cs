@@ -45,7 +45,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private void Spawn()
     {
-        int spawnCount = Random.Range(1, ((int)PlayerStat.CurMonsterLevel + 1) * 3);
+        int spawnCount = Random.Range(1, ((int)PlayerStat.CurMonsterLevel + 1) * 2);
 
         for(int i = 0; i < spawnCount; i++)
         {
