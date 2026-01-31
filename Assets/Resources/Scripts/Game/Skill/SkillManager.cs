@@ -23,7 +23,8 @@ public class SkillManager : Singleton<SkillManager>
     private int _orbitalCount;
     private float _orbitalAngle = 0f;
     private float _baseRadius;
-    private const float _baseRotateSpeed = 90f;    
+    private const float _baseRotateSpeed = 90f;
+    private const float _radiusSpeed = 2f;
 
     public void Init()
     {
@@ -186,9 +187,11 @@ public class SkillManager : Singleton<SkillManager>
 
         _orbitalAngle += _baseRotateSpeed * _orbitalSpeed * dt;
 
+        float dynamicRadius = GameManager.Instance.Center.VisualRadius + 0.75f + (Mathf.Sin(Time.time * _radiusSpeed) * 0.25f);
+
         for(int i = 0; i < _activeOrbitals.Count; i++)
         {
-            _activeOrbitals[i].SetPositionByAngle(_orbitalAngle, _baseRadius);
+            _activeOrbitals[i].SetPositionByAngle(_orbitalAngle, dynamicRadius);
         }
     }
 
@@ -196,7 +199,7 @@ public class SkillManager : Singleton<SkillManager>
     {
         if (!SkillStat.IsUnlocked(UpgradeType.SkillOrbital)) return;
 
-        _baseRadius = GameManager.Instance.Center.VisualRadius + 0.5f;
+        _baseRadius = GameManager.Instance.Center.VisualRadius + 0.75f;
         _orbitalCount = SkillStat.GetSkillLevel(UpgradeType.SkillOrbital) + 1;
         _orbitalSpeed = PlayerStat.CalcCurAtkDelay;
         _orbitalAngle = 0;
