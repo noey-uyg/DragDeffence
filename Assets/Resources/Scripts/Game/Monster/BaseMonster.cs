@@ -98,7 +98,10 @@ public class BaseMonster : MonoBehaviour
             return;
         }
 
-        PlayHitFlash();
+        if (gameObject.activeInHierarchy)
+        {
+            PlayHitFlash();
+        }
     }
 
     private void ShowDamageText(float dam, bool isCritical = false)

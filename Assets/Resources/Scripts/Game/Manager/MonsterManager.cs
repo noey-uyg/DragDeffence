@@ -33,10 +33,11 @@ public class MonsterManager : Singleton<MonsterManager>
         var activeBlasts = SkillManager.Instance.GetActiveBlasts();
         var activeOrbitals = SkillManager.Instance.GetActiveOrbitals();
 
-        for (int i = _monsters.Count - 1; i >= 0; i--)
-        {
-            var monster = _monsters[i];
+        var currentMonster = _monsters.ToArray();
 
+        for (int i = 0; i < currentMonster.Length; i++)
+        {
+            var monster = currentMonster[i];
             if(monster == null || !monster.gameObject.activeInHierarchy) continue;
 
             monster.UpdateOrbitalTimer(dt);
