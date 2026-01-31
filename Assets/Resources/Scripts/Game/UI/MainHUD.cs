@@ -44,6 +44,11 @@ public class MainHUD : Singleton<MainHUD>
         }
     }
 
+    public void OnEndButtonClick()
+    {
+        GameManager.Instance.SetGameState(GameState.GameOver);
+    }
+
     private IEnumerator IETimerRoutine()
     {
         float remainingTime = PlayerStat.CurPlayTime;
